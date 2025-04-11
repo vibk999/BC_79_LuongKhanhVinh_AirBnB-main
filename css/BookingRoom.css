@@ -1,0 +1,260 @@
+.date-range-picker .rdrDefinedRangesWrapper {
+  background: #fff;
+  border-right: 1px solid #eff2f7;
+  font-size: 12px;
+  width: 226px;
+}
+.date-range-picker .rdrStaticRange {
+  background: #fff;
+  border: 0;
+  border-bottom: 1px solid #eff2f7;
+  cursor: pointer;
+  display: block;
+  outline: 0;
+  padding: 0;
+}
+.date-range-picker .rdrStaticRangeLabel {
+  display: block;
+  line-height: 18px;
+  outline: 0;
+  padding: 10px 20px;
+  text-align: left;
+}
+.date-range-picker .rdrInputRanges {
+  padding: 10px 0;
+}
+.date-range-picker .rdrInputRange {
+  align-items: center;
+  padding: 5px 20px;
+}
+.date-range-picker .rdrInputRangeInput {
+  border: 1px solid #dee7eb;
+  border-radius: 4px;
+  color: #6c767a;
+  height: 30px;
+  line-height: 30px;
+  margin-right: 10px;
+  text-align: center;
+  width: 30px;
+}
+.date-range-picker .rdrCalendarWrapper {
+  background: #fff;
+  box-sizing: border-box;
+  display: inline-flex;
+  flex-direction: column;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.date-range-picker .rdrDefinedRangesWrapper {
+  background: #fff;
+  border-right: 1px solid #eff2f7;
+  font-size: 12px;
+  width: 226px;
+}
+.date-range-picker .rdrCalendarWrapper {
+  color: #000;
+  font-size: 12px;
+}
+.date-range-picker .rdrDateDisplayWrapper {
+  background-color: #eff2f7;
+}
+.date-range-picker .rdrDateDisplay {
+  margin: 0.833em;
+}
+.date-range-picker .rdrDateDisplayItem {
+  background-color: #fff;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  box-shadow: 0 1px 2px 0 rgba(35, 57, 66, 0.21);
+}
+.date-range-picker .rdrDateDisplayItemActive {
+  border-color: currentColor;
+}
+.date-range-picker .rdrDateDisplayItem input {
+  background: transparent;
+  border: 0;
+  color: #849095;
+  cursor: pointer;
+  height: 2.5em;
+  line-height: 2.5em;
+  width: 100%;
+}
+.date-range-picker .rdrDateDisplayItemActive input {
+  color: #7d888d;
+}
+.date-range-picker .rdrMonthAndYearWrapper {
+  align-items: center;
+  height: 60px;
+  padding-top: 10px;
+}
+.date-range-picker .rdrNextPrevButton {
+  background: #eff2f7;
+  border: 0;
+  border-radius: 5px;
+  display: block;
+  height: 24px;
+  margin: 0 0.833em;
+  padding: 0;
+  width: 24px;
+}
+.date-range-picker .rdrMonthAndYearPickers {
+  font-weight: 600;
+}
+.date-range-picker .rdrPprevButton i {
+  border-color: transparent #34495e transparent transparent !important;
+  border-width: 4px 6px 4px 4px !important;
+  transform: translate(-3px);
+}
+.date-range-picker .rdrNextPrevButton i {
+  border-style: solid;
+  display: block;
+  height: 0;
+  margin: auto;
+  padding: 0;
+  text-align: center;
+  transform: translate(-3px);
+  width: 0;
+}
+.date-range-picker .rdrNextPrevButton {
+  background: #eff2f7;
+  border: 0;
+  border-radius: 5px;
+  display: block;
+  height: 24px;
+  margin: 0 0.833em;
+  padding: 0;
+  width: 24px;
+}
+.date-range-picker .rdrNextPrevButton {
+  box-sizing: inherit;
+  cursor: pointer;
+  outline: none;
+}
+.date-range-picker .rdrNextPrevButton i {
+  border-style: solid;
+  display: block;
+  height: 0;
+  margin: auto;
+  padding: 0;
+  text-align: center;
+  transform: translate(-3px);
+  width: 0;
+}
+.date-range-picker .rdrNextButton i {
+  border-color: transparent transparent transparent #34495e;
+  border-width: 4px 4px 4px 6px;
+  margin: 0 0 0 7px;
+  transform: translate(3px);
+}
+.date-range-picker .rdrMonthAndYearPickers select,
+.date-range-picker .rdrMonthAndYearPickers select {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background: transparent;
+  border: 0;
+  border-radius: 4px;
+  color: #3e484f;
+  cursor: pointer;
+  outline: 0;
+  padding: 10px 30px 10px 10px;
+  text-align: center;
+}
+.date-range-picker .rdrMonthAndYearPickers select:hover,
+.date-range-picker .rdrMonthAndYearPickers select:hover {
+  background-color: rgba(0, 0, 0, 0.07);
+}
+.date-range-picker .rdrMonthPicker,
+.date-range-picker .rdrYearPicker {
+  margin: 0 5px;
+}
+.date-range-picker .rdrMonth {
+  padding: 0 0.833em 1.666em;
+}
+.date-range-picker .rdrMonth .rdrWeekDays {
+  padding: 0;
+}
+.date-range-picker .rdrWeekDay {
+  color: #849095;
+  font-weight: 400;
+  line-height: 2.667em;
+}
+.date-range-picker .rdrDay {
+  background: transparent;
+  border: 0;
+  color: #1d2429;
+  height: 3em;
+  line-height: 3em;
+  padding: 0;
+  text-align: center;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  transition: all 0.2s;
+}
+.date-range-picker .rdrDay:hover .rdrDayNumber {
+  border-radius: 1.042em;
+  background-color: #e0565b !important;
+}
+.date-range-picker .rdrDay:hover .rdrDayNumber span {
+  color: #fff !important;
+}
+.date-range-picker .rdrDayDisabled {
+  background-color: #f8f8f8;
+  border-radius: 50%;
+}
+.date-range-picker .rdrDayDisabled:hover .rdrDayNumber {
+  border-radius: 1.042em;
+  background-color: #f8f8f8 !important;
+}
+.date-range-picker .rdrDayDisabled:hover .rdrDayNumber span {
+  color: #666 !important;
+}
+.date-range-picker .rdrEndEdge,
+.date-range-picker .rdrInRange,
+.date-range-picker .rdrSelected,
+.date-range-picker .rdrStartEdge {
+  background: currentColor;
+  bottom: 5px;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 5px;
+  color: rgb(224, 86, 91) !important;
+}
+.date-range-picker .rdrEndEdge:hover,
+.date-range-picker .rdrInRange:hover,
+.date-range-picker .rdrSelected:hover,
+.date-range-picker .rdrStartEdge:hover {
+  background-color: rgb(224, 86, 91) !important;
+  color: #fff !important;
+}
+.date-range-picker .rdrStartEdge {
+  border-bottom-left-radius: 1.042em;
+  border-top-left-radius: 1.042em;
+}
+.date-range-picker .rdrEndEdge {
+  border-bottom-right-radius: 1.042em;
+  border-top-right-radius: 1.042em;
+  right: 2px;
+}
+.date-range-picker .rdrDayNumber {
+  align-items: center;
+  bottom: 5px;
+  display: flex;
+  font-weight: 300;
+  justify-content: center;
+  left: 0;
+  outline: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  top: 5px;
+}
+.date-range-picker .rdrDay:not(.rdrDayPassive) .rdrEndEdge ~ .rdrDayNumber span,
+.date-range-picker .rdrDay:not(.rdrDayPassive) .rdrInRange ~ .rdrDayNumber span,
+.date-range-picker .rdrDay:not(.rdrDayPassive) .rdrSelected ~ .rdrDayNumber span,
+.date-range-picker .rdrDay:not(.rdrDayPassive) .rdrStartEdge ~ .rdrDayNumber span {
+  color: hsla(0, 0%, 100%, 0.85);
+}/*# sourceMappingURL=BookingRoom.css.map */

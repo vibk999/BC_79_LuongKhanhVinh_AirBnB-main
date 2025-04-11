@@ -1,0 +1,307 @@
+.date-range-picker {
+  .rdrDefinedRangesWrapper {
+    background: #fff;
+    border-right: 1px solid #eff2f7;
+    font-size: 12px;
+    width: 226px;
+  }
+
+  .rdrStaticRange {
+    background: #fff;
+    border: 0;
+    border-bottom: 1px solid #eff2f7;
+    cursor: pointer;
+    display: block;
+    outline: 0;
+    padding: 0;
+  }
+
+  .rdrStaticRangeLabel {
+    display: block;
+    line-height: 18px;
+    outline: 0;
+    padding: 10px 20px;
+    text-align: left;
+  }
+
+  .rdrInputRanges {
+    padding: 10px 0;
+  }
+
+  .rdrInputRange {
+    align-items: center;
+    padding: 5px 20px;
+  }
+
+  .rdrInputRangeInput {
+    border: 1px solid #dee7eb;
+    border-radius: 4px;
+    color: #6c767a;
+    height: 30px;
+    line-height: 30px;
+    margin-right: 10px;
+    text-align: center;
+    width: 30px;
+  }
+
+  .rdrCalendarWrapper {
+    background: #fff;
+    box-sizing: border-box;
+    display: inline-flex;
+    flex-direction: column;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+
+  .rdrDefinedRangesWrapper {
+    background: #fff;
+    border-right: 1px solid #eff2f7;
+    font-size: 12px;
+    width: 226px;
+  }
+
+  .rdrCalendarWrapper {
+    color: #000;
+    font-size: 12px;
+  }
+
+  .rdrDateDisplayWrapper {
+    background-color: #eff2f7;
+  }
+
+  .rdrDateDisplay {
+    margin: 0.833em;
+  }
+
+  .rdrDateDisplayItem {
+    background-color: #fff;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    box-shadow: 0 1px 2px 0 rgba(35, 57, 66, .21);
+  }
+
+  .rdrDateDisplayItemActive {
+    border-color: currentColor;
+  }
+
+  .rdrDateDisplayItem input {
+    background: transparent;
+    border: 0;
+    color: #849095;
+    cursor: pointer;
+    height: 2.5em;
+    line-height: 2.5em;
+    width: 100%;
+  }
+
+  .rdrDateDisplayItemActive input {
+    color: #7d888d;
+  }
+
+  .rdrMonthAndYearWrapper {
+    align-items: center;
+    height: 60px;
+    padding-top: 10px;
+  }
+
+  .rdrNextPrevButton {
+    background: #eff2f7;
+    border: 0;
+    border-radius: 5px;
+    display: block;
+    height: 24px;
+    margin: 0 0.833em;
+    padding: 0;
+    width: 24px;
+  }
+
+  .rdrMonthAndYearPickers {
+    font-weight: 600;
+  }
+
+  .rdrPprevButton i {
+    border-color: transparent #34495e transparent transparent !important;
+    border-width: 4px 6px 4px 4px !important;
+    transform: translate(-3px);
+  }
+
+  .rdrNextPrevButton i {
+    border-style: solid;
+    display: block;
+    height: 0;
+    margin: auto;
+    padding: 0;
+    text-align: center;
+    transform: translate(-3px);
+    width: 0;
+  }
+
+  .rdrNextPrevButton {
+    background: #eff2f7;
+    border: 0;
+    border-radius: 5px;
+    display: block;
+    height: 24px;
+    margin: 0 0.833em;
+    padding: 0;
+    width: 24px;
+  }
+
+  .rdrNextPrevButton {
+    box-sizing: inherit;
+    cursor: pointer;
+    outline: none;
+  }
+
+  .rdrNextPrevButton i {
+    border-style: solid;
+    display: block;
+    height: 0;
+    margin: auto;
+    padding: 0;
+    text-align: center;
+    transform: translate(-3px);
+    width: 0;
+  }
+
+  .rdrNextButton i {
+    border-color: transparent transparent transparent #34495e;
+    border-width: 4px 4px 4px 6px;
+    margin: 0 0 0 7px;
+    transform: translate(3px);
+  }
+
+  .rdrMonthAndYearPickers select,
+  .rdrMonthAndYearPickers select {
+    appearance: none;
+    background: transparent;
+    border: 0;
+    border-radius: 4px;
+    color: #3e484f;
+    cursor: pointer;
+    outline: 0;
+    padding: 10px 30px 10px 10px;
+    text-align: center;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, .07);
+    }
+  }
+
+  .rdrMonthPicker,
+  .rdrYearPicker {
+    margin: 0 5px;
+  }
+
+  .rdrMonth {
+    padding: 0 0.833em 1.666em;
+  }
+
+  .rdrMonth .rdrWeekDays {
+    padding: 0;
+  }
+
+  .rdrWeekDay {
+    color: #849095;
+    font-weight: 400;
+    line-height: 2.667em;
+  }
+
+  .rdrDay {
+    background: transparent;
+    border: 0;
+    color: #1d2429;
+    height: 3em;
+    line-height: 3em;
+    padding: 0;
+    text-align: center;
+    user-select: none;
+    transition: all 0.2s;
+
+    &:hover {
+      .rdrDayNumber {
+        border-radius: 1.042em;
+        background-color: #e0565b !important;
+
+        span {
+          color: #fff !important;
+        }
+      }
+
+    }
+  }
+
+  .rdrDayDisabled {
+    background-color: #f8f8f8;
+    border-radius: 50%;
+
+    &:hover {
+      .rdrDayNumber {
+        border-radius: 1.042em;
+        background-color: #f8f8f8 !important;
+
+        span {
+          color: #666 !important;
+        }
+      }
+
+    }
+  }
+
+  .rdrEndEdge,
+  .rdrInRange,
+  .rdrSelected,
+  .rdrStartEdge {
+    background: currentColor;
+    bottom: 5px;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 5px;
+    color: rgb(224, 86, 91) !important;
+
+    &:hover {
+      background-color: rgb(224, 86, 91) !important;
+      color: #fff !important;
+    }
+  }
+
+
+
+  .rdrStartEdge {
+    border-bottom-left-radius: 1.042em;
+    border-top-left-radius: 1.042em;
+
+  }
+
+  .rdrEndEdge {
+    border-bottom-right-radius: 1.042em;
+    border-top-right-radius: 1.042em;
+    right: 2px;
+  }
+
+  .rdrDayNumber {
+    align-items: center;
+    bottom: 5px;
+    display: flex;
+    font-weight: 300;
+    justify-content: center;
+    left: 0;
+    outline: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    top: 5px;
+
+
+  }
+
+
+  .rdrDay:not(.rdrDayPassive) .rdrEndEdge~.rdrDayNumber span,
+  .rdrDay:not(.rdrDayPassive) .rdrInRange~.rdrDayNumber span,
+  .rdrDay:not(.rdrDayPassive) .rdrSelected~.rdrDayNumber span,
+  .rdrDay:not(.rdrDayPassive) .rdrStartEdge~.rdrDayNumber span {
+    color: hsla(0, 0%, 100%, .85);
+  }
+}

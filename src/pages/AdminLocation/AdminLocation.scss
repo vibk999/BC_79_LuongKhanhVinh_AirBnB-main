@@ -1,0 +1,25 @@
+.btnLocation-edit {
+  color: white;
+  background-color: rgb(129, 209, 10);
+  width: 30px;
+  height: 30px;
+  line-height: 28px;
+  border-radius: 5px;
+  border: none;
+}
+.btnLocation-edit:hover {
+  background-color: green;
+}
+
+.btnLocation-delete {
+  color: white;
+  background-color: red;
+  width: 30px;
+  height: 30px;
+  line-height: 28px;
+  border-radius: 5px;
+  border: none;
+}
+.btnLocation-delete:hover {
+  background-color: brown;
+}

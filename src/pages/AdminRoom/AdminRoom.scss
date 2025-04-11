@@ -1,0 +1,36 @@
+.btnRoom-edit {
+  color: white;
+  background-color: rgb(129, 209, 10);
+  width: 30px;
+  height: 30px;
+  line-height: 28px;
+  border-radius: 5px;
+  border: none;
+}
+.btnRoom-edit:hover {
+  background-color: green;
+}
+.btnRoom-delete {
+  color: white;
+  background-color: rgb(223, 52, 52);
+  width: 30px;
+  height: 30px;
+  line-height: 28px;
+  border-radius: 5px;
+  border: none;
+}
+.btnRoom-delete:hover {
+  background-color: brown;
+}
+.btnRoom-Img {
+  color: white;
+  background-color: orange;
+  width: 30px;
+  height: 30px;
+  line-height: 28px;
+  border-radius: 5px;
+  border: none;
+}
+.btnRoom-Img:hover {
+  background-color: orangered;
+}

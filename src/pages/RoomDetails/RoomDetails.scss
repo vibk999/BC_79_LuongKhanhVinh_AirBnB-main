@@ -1,0 +1,33 @@
+.room-details {
+
+
+    .icon-Home {
+        display: inline-block;
+        height: 24px;
+        width: 24px;
+        fill: currentcolor;
+    }
+
+    .icon-kitchen {
+        display: block;
+        height: 24px;
+        width: 24px;
+        fill: currentcolor;
+    }
+
+    .btn-bookroom {
+        background: linear-gradient(to right, rgb(230, 30, 77) 0%, rgb(227, 28, 95) 50%, rgb(215, 4, 102) 100%);
+        transition: background 0.3s;
+
+        &:hover {
+            background: lighten(rgb(230, 30, 77), 10%) 0%, lighten(rgb(227, 28, 95), 10%) 50%, lighten(rgb(215, 4, 102), 10%) 100%;
+            color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        &:disabled {
+            background: gray;
+            cursor: not-allowed;
+        }
+    }
+}

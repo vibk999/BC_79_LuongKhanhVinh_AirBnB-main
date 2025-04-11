@@ -1,0 +1,20 @@
+.adminComment-main {
+  background-color: #f5f5f5;
+}
+.title-admin {
+  font-size: 30px;
+  color: blue;
+}
+
+.AdminCommentBtn .btn-deleteComment {
+  color: #fff;
+  background-color: rgb(223, 52, 52);
+  width: 30px;
+  height: 30px;
+  line-height: 28px;
+  border-radius: 5px;
+  border: none;
+}
+.AdminCommentBtn .btn-deleteComment:hover {
+  background-color: brown;
+}

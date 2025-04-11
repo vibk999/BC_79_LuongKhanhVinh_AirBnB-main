@@ -1,0 +1,157 @@
+.css-text {
+    z-index: 9999;
+    border: 0px;
+    clip: rect(1px, 1px, 1px, 1px);
+    height: 1px;
+    width: 1px;
+    position: absolute;
+    overflow: hidden;
+    padding: 0px;
+    white-space: nowrap;
+}
+
+.MuiAutocomplete-hasPopupIcon.css-1wuilmg-MuiAutocomplete-root .MuiOutlinedInput-root {
+    border-radius: 30px !important;
+    width: 100% !important;
+    padding: 12px !important;
+
+}
+
+.css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root {
+    top: 4% !important;
+}
+
+.css-1d8n9bt {
+    -webkit-box-align: center;
+    align-items: center;
+    display: grid;
+    flex: 1 1 0%;
+    flex-wrap: wrap;
+    padding: 2px 8px;
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.css-qc6sy-singleValue {
+    color: rgb(51, 51, 51);
+    grid-area: 1 / 1 / 2 / 3;
+    margin-left: 2px;
+    margin-right: 2px;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    box-sizing: border-box;
+}
+
+.css-ackcql {
+    margin: 2px;
+    padding-bottom: 2px;
+    padding-top: 2px;
+    visibility: visible;
+    color: rgb(51, 51, 51);
+    flex: 1 1 auto;
+    display: inline-grid;
+    grid-area: 1 / 1 / 2 / 3;
+    grid-template-columns: 0px min-content;
+    box-sizing: border-box;
+}
+
+.custom-input {
+    color: 'inherit';
+    background: '0px center';
+    opacity: 1;
+    width: '100%';
+    grid-area: '1 / 2 / auto / auto';
+    font: 'inherit';
+    min-width: '2px';
+    border: 0;
+    margin: 0;
+    outline: 0;
+    padding: 0;
+
+    &::after {
+        content: attr(data-value) " ";
+        visibility: hidden;
+        white-space: pre;
+        grid-area: 1 / 2 / auto / auto;
+        font: inherit;
+        min-width: 2px;
+        border: 0px;
+        margin: 0px;
+        outline: 0px;
+        padding: 0px;
+    }
+}
+
+.css-1wy0on6 {
+    -webkit-box-align: center;
+    align-items: center;
+    align-self: stretch;
+    display: flex;
+    flex-shrink: 0;
+    box-sizing: border-box;
+}
+
+.line-headder {
+    align-self: stretch;
+    background-color: rgb(204, 204, 204);
+    margin-bottom: 8px;
+    margin-top: 8px;
+    width: 1px;
+    box-sizing: border-box;
+}
+
+.indicatorContainer {
+    color: rgb(204, 204, 204);
+    display: flex;
+    padding: 8px;
+    transition: color 150ms ease 0s;
+    box-sizing: border-box;
+}
+
+.css-8mmkcg {
+    display: inline-block;
+    fill: currentcolor;
+    line-height: 1;
+    stroke: currentcolor;
+    stroke-width: 0;
+}
+
+.transition-slide-down {
+    transform: translateY(-45%);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.transition-slide-down.active {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+@media (max-width: 1279.98px) {
+    .header-search {
+        flex-wrap: nowrap;
+    }
+}
+
+// Large devices (desktops, less than 1200px)
+@media (max-width: 1199.98px) {}
+
+// Medium devices (tablets, less than 992px)
+@media (min-width: 767.98px) and (max-width: 991.98px) {
+    .search-location {
+        width: 100%;
+    }
+}
+
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) {}
+
+// Small devices (landscape phones, 576px and up)
+@media (max-width: 575.98px) {}
+
+@media (min-width: 458px) and (max-width: 575.90px) {}
+
+@media (max-width: 400px) {}

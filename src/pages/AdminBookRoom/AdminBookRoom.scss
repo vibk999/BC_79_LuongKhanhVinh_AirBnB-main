@@ -1,0 +1,24 @@
+.btnBookRoom-edit {
+  color: white;
+  background-color: rgb(129, 209, 10);
+  width: 30px;
+  height: 30px;
+  line-height: 28px;
+  border-radius: 5px;
+  border: none;
+}
+.btnBookRoom-edit:hover {
+  background-color: green;
+}
+.btnBookRoom-delete {
+  color: #fff;
+  background-color: rgb(223, 52, 52);
+  width: 30px;
+  height: 30px;
+  line-height: 28px;
+  border-radius: 5px;
+  border: none;
+}
+.btnBookRoom-delete:hover {
+  background-color: brown;
+}

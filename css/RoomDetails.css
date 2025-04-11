@@ -1,0 +1,25 @@
+.room-details .icon-Home {
+  display: inline-block;
+  height: 24px;
+  width: 24px;
+  fill: currentcolor;
+}
+.room-details .icon-kitchen {
+  display: block;
+  height: 24px;
+  width: 24px;
+  fill: currentcolor;
+}
+.room-details .btn-bookroom {
+  background: linear-gradient(to right, rgb(230, 30, 77) 0%, rgb(227, 28, 95) 50%, rgb(215, 4, 102) 100%);
+  transition: background 0.3s;
+}
+.room-details .btn-bookroom:hover {
+  background: #eb4c71 0%, #e9497f 50%, #fb137f 100%;
+  color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.room-details .btn-bookroom:disabled {
+  background: gray;
+  cursor: not-allowed;
+}/*# sourceMappingURL=RoomDetails.css.map */
