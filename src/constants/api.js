@@ -11,3 +11,14 @@ export const TOKEN_CYBERSOFT =
 //       "avatar": null,
 //       "gender": true,
 //       "role": "USER"
+// {
+//   "id": 43602,
+//   "name": "abcd",
+//   "email": "1234@gmail.com",
+//   "password": "123456789",
+//   "phone": "1234567891",
+//   "birthday": "2025-04-30",
+//   "avatar": "",
+//   "gender": true,
+//   "role": "ADMIN"
+// },

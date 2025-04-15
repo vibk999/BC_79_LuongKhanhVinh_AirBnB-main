@@ -1,17 +1,16 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from "react";
 import userUpload from "../../../assets/img/user_upload.png";
-import CancelIcon from '@mui/icons-material/Cancel';
-import AddCircleIcon from '@mui/icons-material/AddCircle';
-import FileUploadIcon from '@mui/icons-material/FileUpload';
-import "./ImagePersonal.scss"
-import { userService } from '../../../services/UserBooking';
-import { useSelector } from 'react-redux';
-
+import CancelIcon from "@mui/icons-material/Cancel";
+import AddCircleIcon from "@mui/icons-material/AddCircle";
+import FileUploadIcon from "@mui/icons-material/FileUpload";
+import "./ImagePersonal.scss";
+import { userService } from "../../../services/UserBooking";
+import { useSelector } from "react-redux";
 
 export default function ImagePersonal() {
   const [isModalOpen, setModalOpen] = useState(false);
   const [selectedFile, setSelectedFile] = useState(null);
-  const stateUser = useSelector((state) => state.userReducer);
+  const stateUser = useSelector((state) => state.user);
   const [avatar, setAvatar] = useState();
   const openModal = () => {
     setModalOpen(true);
@@ -24,12 +23,12 @@ export default function ImagePersonal() {
 
   const getUserInfo = async () => {
     const result = await userService.userInfoApi(stateUser.userInfo.user.id);
-    setAvatar(result.data.content.avatar)
-  }
+    setAvatar(result.data.content.avatar);
+  };
 
   useEffect(() => {
     getUserInfo();
-  }, [])
+  }, []);
   const handleFileChange = (event) => {
     const file = event.target.files[0];
     if (file) {
@@ -41,13 +40,13 @@ export default function ImagePersonal() {
   const uploadImage = async () => {
     if (selectedFile) {
       const formData = new FormData();
-      formData.append('formFile', selectedFile);
+      formData.append("formFile", selectedFile);
       try {
         await userService.uploadAvatarApi(formData);
         closeModal();
         getUserInfo();
       } catch (error) {
-        console.error('Error while uploading image', error);
+        console.error("Error while uploading image", error);
       }
     }
   };
@@ -66,15 +65,23 @@ export default function ImagePersonal() {
           alt="User Uploaded Avatar"
         />
       )}
-      <button onClick={openModal} className="text-center text-sm text-gray-600 underline hover:text-black duration-150 block mx-auto">
+      <button
+        onClick={openModal}
+        className="text-center text-sm text-gray-600 underline hover:text-black duration-150 block mx-auto"
+      >
         Cập nhật ảnh
       </button>
       {isModalOpen && (
         <div className="fixed inset-0 flex items-center justify-center z-50 bg-gray-900 bg-opacity-50">
           <div className="modal-container bg-white w-96 p-4 rounded-lg shadow-lg">
-            <div className="flex  justify-between mb-5 border-b mb-3">
-              <h2 className="text-gray-800 font-semibold text-lg pb-2">Cập nhật ảnh</h2>
-              <span className="modal-close text-gray-500 cursor-pointer hover:text-red-500" onClick={closeModal}>
+            <div className="flex  justify-between border-b mb-3">
+              <h2 className="text-gray-800 font-semibold text-lg pb-2">
+                Cập nhật ảnh
+              </h2>
+              <span
+                className="modal-close text-gray-500 cursor-pointer hover:text-red-500"
+                onClick={closeModal}
+              >
                 <CancelIcon />
               </span>
             </div>
@@ -89,16 +96,19 @@ export default function ImagePersonal() {
                 {selectedFile ? <FileUploadIcon /> : <AddCircleIcon />}
 
                 <span className="ml-1 text-gray-600">
-                  {selectedFile ? selectedFile.name : 'Chọn tệp ảnh'}
+                  {selectedFile ? selectedFile.name : "Chọn tệp ảnh"}
                 </span>
               </div>
             </label>
-            <button onClick={uploadImage} className="border-t mt-5 bg-rose-500 hover:bg-rose-600 text-white font-semibold py-2 px-4 rounded-md float-right">
+            <button
+              onClick={uploadImage}
+              className="border-t mt-5 bg-rose-500 hover:bg-rose-600 text-white font-semibold py-2 px-4 rounded-md float-right"
+            >
               Cập nhật
             </button>
           </div>
         </div>
       )}
     </div>
-  )
+  );
 }

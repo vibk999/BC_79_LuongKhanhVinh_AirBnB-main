@@ -204,7 +204,7 @@ export default function FeedbackRoom(props) {
                 value={rating}
                 count={5}
                 onChange={handleRatingChange}
-                size={24}
+                size={100}
                 color2={"#ffd700"} // Màu sao đã chọn
                 half={false}
               />

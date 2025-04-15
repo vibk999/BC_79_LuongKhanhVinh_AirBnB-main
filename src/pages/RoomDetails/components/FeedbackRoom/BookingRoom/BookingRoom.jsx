@@ -8,7 +8,7 @@ import { useSelector } from "react-redux";
 // import { notification } from "antd"; // Removed Ant Design notification
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-import { Snackbar, Alert } from "@mui/material"; // Imported MUI Snackbar and Alert
+import { Snackbar, Alert } from "@mui/material";
 
 export default function BookingRoom() {
   const { userInfo } = useSelector((state) => state.user);

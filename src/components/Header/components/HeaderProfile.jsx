@@ -62,6 +62,7 @@ export default function HeaderProfile() {
             Đăng Nhập
           </NavLink>
         </MenuItem>,
+
         <MenuItem key="host" onClick={handleMenuClose}>
           <a
             href="#"
@@ -135,6 +136,20 @@ export default function HeaderProfile() {
             activeClassName="bg-gray-100"
           >
             Thông tin cá nhân
+          </NavLink>
+        </MenuItem>,
+        <MenuItem key="admin" onClick={handleMenuClose}>
+          <NavLink
+            to={"/admin"}
+            style={{
+              textDecoration: "none",
+              color: pink[500],
+              display: "block",
+              padding: "8px 16px",
+            }}
+            activeClassName="bg-gray-100"
+          >
+            Vào trang admin
           </NavLink>
         </MenuItem>,
         <MenuItem key="host" onClick={handleMenuClose}>

@@ -1,17 +1,24 @@
-import React, { useEffect, useState } from "react";
-import security from "../../assets/img/security.png";
-import * as Yup from "yup";
-import { Form, ErrorMessage, Field, Formik } from "formik";
-import Swal from 'sweetalert2';
-
-import "./PersonaInfo.scss";
+import React, { useEffect, useState, useContext } from "react";
 import { useSelector } from "react-redux";
-import { userService } from "../../services/UserBooking";
-import ImagePersonal from "./ImagePersonal/ImagePersonal";
-import { useContext } from "react";
-import { LoadingContext } from "../../contexts/Loading/Loading";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
+import Swal from "sweetalert2";
 import { DatePicker } from "antd";
 import dayjs from "dayjs";
+
+import {
+  TextField,
+  Button,
+  FormControl,
+  InputLabel,
+  Select,
+  MenuItem,
+} from "@mui/material";
+
+import security from "../../assets/img/security.png";
+import { userService } from "../../services/UserBooking";
+import { LoadingContext } from "../../contexts/Loading/Loading";
+import ImagePersonal from "./ImagePersonal/ImagePersonal";
 
 const validationSchema = Yup.object().shape({
   name: Yup.string().required("(*) Họ tên không được để trống"),
@@ -26,65 +33,76 @@ const validationSchema = Yup.object().shape({
 });
 
 export default function PersonaInfo() {
-
-  const stateUser = useSelector((state) => state.userReducer);
-  const [_, setLoadingState] = useContext(LoadingContext);
+  const { userInfo: userFromStore } = useSelector((state) => state.user);
   const [userInfo, setUserInfo] = useState({
-    name: '',
-    birthday: '',
-    email: '',
-    phone: '',
-    gender: '',
+    name: "",
+    birthday: "",
+    email: "",
+    phone: "",
+    gender: "",
   });
-  console.log(userInfo.birthday);
-
   const [fieldErrors, setFieldErrors] = useState("");
+  const [, setLoadingState] = useContext(LoadingContext);
 
   const getUserInfo = async () => {
     setLoadingState({ isLoading: true });
-    const result = await userService.userInfoApi(stateUser.userInfo.user.id);
-    console.log(result.data.content.birthday);
-    setUserInfo({
-      ...result.data.content,
-      birthday: result.data.content.birthday
-        ? dayjs(result.data.content.birthday)
-        : "",
-    });
+    try {
+      const res = await userService.userInfoApi(userFromStore.user.id);
+      const { name, birthday, email, phone, gender } = res.data.content;
+      setUserInfo({
+        name,
+        birthday: birthday ? dayjs(birthday) : "",
+        email,
+        phone,
+        gender: gender === true ? "true" : "false",
+      });
+    } catch (err) {
+      console.error("Error fetching user info", err);
+    }
     setLoadingState({ isLoading: false });
-  }
+  };
+
   const handleChangeUserInfo = async (values, { resetForm }) => {
     const formattedValues = {
       ...values,
-      birthday: values.birthday ? dayjs(values.birthday).format("MM-DD-YYYY") : null,
+      birthday: values.birthday
+        ? dayjs(values.birthday).format("MM-DD-YYYY")
+        : null,
+      gender: values.gender === "true",
     };
     try {
-      await userService.updateUserInfoApi(stateUser.userInfo.user.id, formattedValues);
-      getUserInfo();
+      await userService.updateUserInfoApi(
+        userFromStore.user.id,
+        formattedValues
+      );
+      await getUserInfo();
       setFieldErrors("");
       Swal.fire({
-        icon: 'success',
-        title: 'Success!',
-        text: 'Bạn đã cập nhật thành công',
+        icon: "success",
+        title: "Success!",
+        text: "Bạn đã cập nhật thành công",
       });
       resetForm();
     } catch (error) {
-      setFieldErrors(error.response.data.content);
+      const errorMsg = error.response?.data?.content || "Lỗi không xác định";
+      setFieldErrors(errorMsg);
       Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: `${error.response.data.content}`,
-      })
-      resetForm();
+        icon: "error",
+        title: "Oops...",
+        text: errorMsg,
+      });
     }
   };
 
   useEffect(() => {
     getUserInfo();
-  }, [])
+  }, []);
+
   return (
     <div className="container mx-auto px-10 personal-info mb-20">
       <div className="h-28"></div>
       <div className="flex flex-wrap">
+        {/* Sidebar */}
         <div className="w-full md:w-1/4 max-md:mb-2">
           <div className="w-full sticky top-32 border rounded-lg p-5">
             <ImagePersonal />
@@ -95,26 +113,26 @@ export default function PersonaInfo() {
                   Xác minh danh tính
                 </span>
               </div>
-              <div className="">
-                <p className="text-gray-600 py-1 text-base">
-                  Xác minh danh tính của bạn với huy hiệu xác minh danh tính.
-                </p>
-                <button className="border px-5 py-2.5 rounded-lg hover:bg-gray-200 duration-200 font-semibold text-gray-800 my-1">
-                  Nhận Huy Hiệu
-                </button>
-              </div>
-            </div>
-            <div className="mt-2 border-t py-2">
-              <div className="font-semibold text-lg text-gray-800">
-                Đã xác nhận
-              </div>
-              <div className="mt-2">
-                <i className="fa-solid fa-check"></i>
-                <span className="ml-2 text-sm italic">Địa chỉ email</span>
+              <p className="text-gray-600 py-1 text-base">
+                Xác minh danh tính của bạn với huy hiệu xác minh danh tính.
+              </p>
+              <button className="border px-5 py-2.5 rounded-lg hover:bg-gray-200 duration-200 font-semibold text-gray-800 my-1">
+                Nhận Huy Hiệu
+              </button>
+              <div className="mt-2 border-t py-2">
+                <div className="font-semibold text-lg text-gray-800">
+                  Đã xác nhận
+                </div>
+                <div className="mt-2">
+                  <i className="fa-solid fa-check"></i>
+                  <span className="ml-2 text-sm italic">Địa chỉ email</span>
+                </div>
               </div>
             </div>
           </div>
         </div>
+
+        {/* Form section */}
         <div className="w-full md:w-3/4 lg:w-3/5">
           <div className="px-10">
             <Formik
@@ -123,109 +141,101 @@ export default function PersonaInfo() {
               validationSchema={validationSchema}
               onSubmit={handleChangeUserInfo}
             >
-              <Form className="personal-form">
-                <div className="md:grid md:grid-cols-1 gap-x-4 gap-y-1">
-                  <div className="form-group">
-                    <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                      <span className="text-red-600">*</span> Họ Tên
-                    </label>
-                    <Field
-                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                      name="name"
-                      type="text"
-                      placeholder="Họ Tên"
-                    />
-                    <ErrorMessage
-                      name="name"
-                      component="div"
-                      className="form-label text-red-600"
-                    />
-                  </div>
+              {({ setFieldValue }) => (
+                <Form className="grid gap-y-6">
+                  {/* Name */}
+                  <Field name="name">
+                    {({ field, meta }) => (
+                      <TextField
+                        label="Họ tên"
+                        fullWidth
+                        {...field}
+                        error={meta.touched && Boolean(meta.error)}
+                        helperText={meta.touched && meta.error}
+                      />
+                    )}
+                  </Field>
 
-                  <div className="form-group">
-                    <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                      <span className="text-red-600">*</span> Ngày sinh
+                  {/* Birthday */}
+                  <div>
+                    <label className="block mb-1 text-sm font-medium text-gray-700">
+                      Ngày sinh
                     </label>
-                    <Field name="birthday">
-                      {({ field, form }) => (
-                        <DatePicker
-                          {...field}
-                          format="DD/MM/YYYY"
-                          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                          onChange={(value) => form.setFieldValue("birthday", value)}
-                        />
-                      )}
-                    </Field>
+                    <DatePicker
+                      format="DD/MM/YYYY"
+                      value={userInfo.birthday || null}
+                      className="w-full rounded-md border p-2"
+                      onChange={(value) => setFieldValue("birthday", value)}
+                    />
                     <ErrorMessage
                       name="birthday"
                       component="div"
-                      className="form-label text-red-600"
+                      className="text-red-600 text-sm mt-1"
                     />
                   </div>
-                  <div className="form-group">
-                    <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                      <span className="text-red-600">*</span> Email
-                    </label>
-                    <Field
-                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                      name="email"
-                      type="text"
-                      placeholder="Email"
-                    />
-                    <ErrorMessage
-                      name="email"
-                      component="div"
-                      className="form-label text-red-600"
-                    />
-                    {fieldErrors && (
-                      <div className="text-red-600">(*) {fieldErrors}</div>
+
+                  {/* Email */}
+                  <Field name="email">
+                    {({ field, meta }) => (
+                      <TextField
+                        label="Email"
+                        fullWidth
+                        {...field}
+                        error={meta.touched && Boolean(meta.error)}
+                        helperText={meta.touched && meta.error}
+                      />
                     )}
-                  </div>
-                  <div className="form-group">
-                    <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                      <span className="text-red-600">*</span> Số Điện Thoại
-                    </label>
-                    <Field
-                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                      name="phone"
-                      type="text"
-                      placeholder="Số điện thoại"
-                    />
-                    <ErrorMessage
-                      name="phone"
-                      component="div"
-                      className="form-label text-red-600"
-                    />
-                  </div>
-                  <div className="form-group">
-                    <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300r">
-                      <span className="text-red-600">*</span> Giới tính
-                    </label>
-                    <Field
-                      as="select"
-                      id="gender"
-                      name="gender"
-                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    >
-                      <option value={true}>Nam</option>
-                      <option value={false}>Nữ</option>
+                  </Field>
+                  {fieldErrors && (
+                    <div className="text-red-600 text-sm">
+                      (*) {fieldErrors}
+                    </div>
+                  )}
+
+                  {/* Phone */}
+                  <Field name="phone">
+                    {({ field, meta }) => (
+                      <TextField
+                        label="Số điện thoại"
+                        fullWidth
+                        {...field}
+                        error={meta.touched && Boolean(meta.error)}
+                        helperText={meta.touched && meta.error}
+                      />
+                    )}
+                  </Field>
+
+                  {/* Gender */}
+                  <FormControl fullWidth>
+                    <InputLabel>Giới tính</InputLabel>
+                    <Field name="gender">
+                      {({ field }) => (
+                        <Select {...field} label="Giới tính">
+                          <MenuItem value="true">Nam</MenuItem>
+                          <MenuItem value="false">Nữ</MenuItem>
+                        </Select>
+                      )}
                     </Field>
                     <ErrorMessage
                       name="gender"
                       component="div"
-                      className="form-label text-red-600"
+                      className="text-red-600 text-sm mt-1"
                     />
+                  </FormControl>
+
+                  {/* Submit */}
+                  <div className="text-center mt-6">
+                    <Button
+                      type="submit"
+                      variant="contained"
+                      color="primary"
+                      className="w-1/2 rounded-full !bg-red-500 hover:!bg-red-700"
+                    >
+                      CẬP NHẬT
+                    </Button>
                   </div>
-                </div>
-                <div className='col-span-2 text-center mt-2'>
-                  <button
-                    type="submit"
-                    className="text-white focus:outline-none focus:ring-4 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 bg-red-500 hover:bg-red-800 duration-300 w-1/2"
-                  >
-                    CẬP NHẬT
-                  </button>
-                </div>
-              </Form>
+                </Form>
+              )}
             </Formik>
           </div>
         </div>
