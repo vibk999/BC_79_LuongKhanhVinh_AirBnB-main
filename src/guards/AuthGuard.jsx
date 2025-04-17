@@ -2,6 +2,7 @@ import { notification } from "antd";
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 export default function AuthGuard(props) {
   const navigate = useNavigate();
@@ -9,9 +10,9 @@ export default function AuthGuard(props) {
   useEffect(() => {
     if (!userState.userInfo) {
       navigate("/login");
-      notification.warning({
-        message: "Vui lòng đăng nhập để xem chi tiết",
-        placement: "topRight",
+      Swal.fire({
+        title: "hãy đăng nhập rùi mới coi nha",
+        icon: "warning",
       });
     }
   }, []);

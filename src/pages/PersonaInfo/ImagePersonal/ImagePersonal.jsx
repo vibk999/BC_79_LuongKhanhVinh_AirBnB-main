@@ -72,8 +72,8 @@ export default function ImagePersonal() {
         Cập nhật ảnh
       </button>
       {isModalOpen && (
-        <div className="fixed inset-0 flex items-center justify-center z-50 bg-gray-900 bg-opacity-50">
-          <div className="modal-container bg-white w-96 p-4 rounded-lg shadow-lg">
+        <div className="relative flex items-center justify-center z-50 bg-gray-900 bg-opacity-100">
+          <div className="modal-container bottom-5 absolute bg-white w-96 p-4 rounded-lg shadow-lg">
             <div className="flex  justify-between border-b mb-3">
               <h2 className="text-gray-800 font-semibold text-lg pb-2">
                 Cập nhật ảnh

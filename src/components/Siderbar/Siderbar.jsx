@@ -18,7 +18,7 @@ export default function Siderbar() {
     {
       path: "/admin/phongthue",
       name: " Rent Room",
-      icon: <i className="fa-solid fa-house" />,
+      icon: <i class="fa-solid fa-bed"></i>,
     },
     {
       path: "/admin/location",
@@ -29,6 +29,11 @@ export default function Siderbar() {
       path: "/admin/comment",
       name: "Comment",
       icon: <i className="fa-regular fa-comment" />,
+    },
+    {
+      path: "/",
+      name: "Return",
+      icon: <i className="fa-solid fa-house" />,
     },
   ];
   const handleLogoutUser = () => {

@@ -1,3 +1,6 @@
+
+@use "sass:color";
+
 .room-details {
 
 
@@ -20,7 +23,7 @@
         transition: background 0.3s;
 
         &:hover {
-            background: lighten(rgb(230, 30, 77), 10%) 0%, lighten(rgb(227, 28, 95), 10%) 50%, lighten(rgb(215, 4, 102), 10%) 100%;
+            background: color.adjust(rgb(230, 30, 77), $lightness: 10%) 0%, color.adjust(rgb(227, 28, 95), $lightness: 10%) 50%, color.adjust(rgb(215, 4, 102), $lightness: 10%) 100%;
             color: #fff;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }

@@ -142,7 +142,7 @@ export default function PersonaInfo() {
               onSubmit={handleChangeUserInfo}
             >
               {({ setFieldValue }) => (
-                <Form className="grid gap-y-6">
+                <Form className="z-0 grid gap-y-6">
                   {/* Name */}
                   <Field name="name">
                     {({ field, meta }) => (
@@ -193,7 +193,7 @@ export default function PersonaInfo() {
                   )}
 
                   {/* Phone */}
-                  <Field name="phone">
+                  <Field className="z-0" name="phone">
                     {({ field, meta }) => (
                       <TextField
                         label="Số điện thoại"
